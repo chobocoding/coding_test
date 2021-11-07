@@ -1,0 +1,22 @@
+# https://programmers.co.kr/learn/courses/30/lessons/77484
+
+def solution(lottos, win_nums):
+    zero_count = 0
+    sort_lottos = sorted(lottos)
+    sort_nums = sorted(win_nums)
+    result = 0
+    
+    # 입력받은 lottos에 0이 몇개인지 파악
+    for lotto in sort_lottos:
+        if lotto == 0:
+            zero_count += 1
+        else: break
+    
+    for i in range(zero_count, len(sort_lottos)):
+            if sort_lottos[i] in win_nums:
+                result += 1
+                
+    dict = {0 : 6, 1 : 6, 2 : 5, 3 : 4, 4 : 3, 5 : 2, 6 : 1}
+    
+    answer = [dict[result+zero_count], dict[result]]
+    return answer
