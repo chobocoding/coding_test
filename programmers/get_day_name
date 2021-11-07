@@ -1,0 +1,23 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12901?language=python3
+
+def solution(a, b):
+    str_a = str(a)
+
+    month_dict = {'1' : 0, '2' : 31, '3' : 60, '4' : 91, '5' : 121, '6' : 152, '7' : 182, '8' : 213,
+                 '9' : 244, '10' : 274, '11' : 305, '12' : 335}
+
+    day_dict = {1 : 'FRI', 2 : 'SAT', 3 : 'SUN', 4 : 'MON', 5 : 'TUE', 6 : 'WED', 7 : 'THU' }
+
+    date_diff = month_dict[str_a] + b - 1
+
+    var = date_diff % 7
+
+    answer = day_dict[var + 1]
+
+    return answer
+    
+    '''
+    1. 두 날짜의 차이를 구함
+    2. 날짜 차이를 7로 나누었을 때의 나머지 값 구함
+    3. 금요일에 날짜 차이를 7로 나눈 나머지 값을 더한 요일을 구함
+    '''
