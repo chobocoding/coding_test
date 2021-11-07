@@ -20,3 +20,4 @@ def solution(lottos, win_nums):
     
     answer = [dict[result+zero_count], dict[result]]
     return answer
+
