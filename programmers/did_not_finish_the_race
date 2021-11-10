@@ -1,0 +1,45 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42576?language=python3
+
+def solution(participant, completion):
+    sort_p = sorted(participant)
+    sort_c = sorted(completion)
+    length = len(sort_c)
+    part1_p = sort_p[:round(length/3)]
+    part2_p = sort_p[round(length/3):2*round(length/3)]
+    part3_p = sort_p[2*round(length/3):]
+    
+    part1_c = sort_c[:round(length/3)]
+    part2_c = sort_c[round(length/3):2*round(length/3)]
+    part3_c = sort_c[2*round(length/3):]
+    
+    if part1_p != part1_c:
+        for i in part1_p:
+            if i not in part1_c:
+                return i
+            part1_c.remove(i)
+
+    elif part2_p != part2_c:
+        for i in part2_p:
+            if i not in part2_c:
+                return i
+            part2_c.remove(i)
+
+    else:
+        for i in part3_p:
+            if i not in part3_c:
+                return i
+            part3_c.remove(i)
+        
+      
+    return None
+    
+ ------------------------------------------
+ '''왜 이렇게 안하고 일일히 remove를 해줬을까...
+  def solution(participant, completion):
+    participant.sort()
+    completion.sort()
+    for i in range(len(completion)):
+        if participant[i] != completion[i]:
+            return participant[i]
+    return participant[len(participant)-1]'''
+    
