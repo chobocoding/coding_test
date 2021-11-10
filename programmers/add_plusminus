@@ -1,0 +1,14 @@
+# https://programmers.co.kr/learn/courses/30/lessons/76501
+
+def solution(absolutes, signs):
+    answer = 0
+    marks = []
+    dict = {True : 1, False : -1}
+    
+    for i in range(len(signs)):
+        
+        answer += absolutes[i]*dict[signs[i]]
+        
+        
+    
+    return answer
