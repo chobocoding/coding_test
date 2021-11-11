@@ -1,0 +1,45 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42840
+
+
+def solution(answer):
+    length = len(answer)
+    person_1 = [1,2,3,4,5]*(round(length/5)+1)
+    person_2 = [2,1,2,3,2,4,2,5] * (round(length/8)+1)
+    person_3 = [3,3,1,1,2,2,4,4,5,5] * (round(length/10)+1)
+    
+    point_1, point_2, point_3 = 0, 0, 0
+    
+    for i in range(len(answer)):
+        if person_1[i] == answer[i]:
+            point_1 += 1
+            
+        if person_2[i] == answer[i]:
+            point_2 += 1
+            
+        if person_3[i] == answer[i]:
+            point_3 += 1
+    
+    scores = [point_1, point_2, point_3]
+    sorted_scores = sorted([point_1, point_2, point_3], reverse=True)
+    
+    ranking = []
+    ls = [1, 2, 3]
+    for i in range(len(sorted_scores)):
+        for j in range(len(scores)):
+            if scores[j] == sorted_scores[i]:
+                ranking.append(j+1)
+                break
+                
+    print(ranking)
+    if ranking[0] == ranking[1]:
+        if ranking[0] == ranking[2]:
+            return [1, 2, 3]
+        
+        else:         
+            ls.remove(ranking[2])
+            return ls
+        
+    else: return [ranking[0]]
+    
+    
+            
