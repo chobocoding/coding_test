@@ -1,0 +1,23 @@
+def solution(n, lost, reserve):
+    dup = []
+    lost.sort()
+    reserve.sort()
+    
+    for i in lost:
+        if i in reserve:
+            dup.append(i)
+            
+    for i in dup:
+        reserve.remove(i)
+        lost.remove(i)
+        
+    result = n - len(lost)
+    
+    for i in reserve:
+        for j in lost:
+            if j in [i-1, i+1]:
+                result += 1                
+                lost.remove(j)
+                break
+    
+    return result
