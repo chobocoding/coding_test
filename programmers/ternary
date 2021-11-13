@@ -1,0 +1,15 @@
+# https://programmers.co.kr/learn/courses/30/lessons/68935
+
+def solution(a):
+    ternary = []
+    answer = 0
+    while True:
+        ternary.append(a%3)
+        if a <= 2: break
+        a = a//3
+        
+    print(ternary.reverse())
+    for i in range(len(ternary)):
+        answer += ternary[i]* (3**i)
+    
+    return answer
