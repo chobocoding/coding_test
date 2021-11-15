@@ -1,0 +1,27 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42889
+
+def solution(N, stages):
+    stage_count = [0]*(N+1)
+    arrived = [len(stages)]*(N+1)
+    failure = []
+    result = []
+    
+    for i in range(0, N+1):
+        stage_count[i] = stages.count(i+1)
+    
+    arrived[i] = stage_count[0]
+    for i in range(len(stage_count)-1):
+        arrived[i+1] = arrived[i] - stage_count[i]
+        
+    for i in range(N):
+        if arrived[i] == 0:
+            failure.append(0)
+            
+        else:
+            failure.append(stage_count[i]/arrived[i])
+        
+    for i in range(N):
+        result.append(failure.index(max(failure))+1)
+        failure[failure.index(max(failure))] = -1
+           
+    return result
