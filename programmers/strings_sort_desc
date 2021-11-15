@@ -1,0 +1,10 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12917
+
+def solution(s):
+    list_s = []
+    for i in s:
+        list_s.append(i)
+        
+    answer = sorted(list_s, reverse=True)
+    answer = ''.join(answer)
+    return answer
