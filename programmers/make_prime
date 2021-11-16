@@ -1,0 +1,20 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12977
+
+import itertools
+
+def solution(nums):
+    comb = list(itertools.combinations(nums, 3))
+    sum_array = []
+    answer = 0
+    
+    for i in comb:
+        sum_array.append(sum(i))
+    
+    for i in sum_array:
+        for j in range(2, i):
+            if (i%j == 0): break
+            
+            if j == (i-1):                 
+                answer += 1
+
+    return answer
