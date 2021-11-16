@@ -1,0 +1,15 @@
+#https://programmers.co.kr/learn/courses/30/lessons/86491
+
+def solution(sizes):
+    first_max = []
+    second_max = []
+    for i in sizes:
+        if i[0] >= i[1]:
+            first_max.append(i[0])
+            second_max.append(i[1])
+        else:
+            second_max.append(i[0])
+            first_max.append(i[1])          
+    
+    
+    return max(first_max)*max(second_max)
