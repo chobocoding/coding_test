@@ -1,0 +1,14 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12940
+
+def solution(n, m):
+    min_mul = 0
+    max_div = 0
+    if n >= m: big = n
+    else: big = m
+    for i in range(big, 0, -1):
+        if (n%i) == 0  and (m%i) == 0:
+            max_div = i
+            break
+    min_mul = (n*m) / max_div
+    
+    return [max_div, min_mul]
