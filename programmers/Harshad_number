@@ -1,0 +1,7 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12947
+
+def solution(x):
+    pos_num = sum(list(map(int, str(x))))
+    
+    if x % pos_num == 0: return True
+    else: return False
