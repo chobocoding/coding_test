@@ -1,0 +1,21 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12926
+
+def solution(s, n):
+    result = []
+    for i in s:
+        if i == ' ':
+            result.append(i)
+        
+        elif ord(i) >= 97:
+            if ord(i)+n > 122:
+                result.append(chr(ord(i)+n-26))
+            else:
+                result.append(chr(ord(i)+n))
+        else:
+            if ord(i)+n > 90:
+                result.append(chr(ord(i)+n-26))
+            else:
+                result.append(chr(ord(i)+n))            
+        
+
+    return ''.join(result)
