@@ -1,0 +1,19 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12930
+
+def solution(s):
+    s = s.lower()
+    words = s.split(' ')
+    answer = []
+    
+    for word in words:
+        idx = 0
+        for i in list(word):
+            
+            if idx % 2 == 0:
+                answer.append(i.upper())
+            else: answer.append(i)
+            idx += 1
+        
+        answer.append(' ')
+            
+    return ''.join(answer[:-1])
