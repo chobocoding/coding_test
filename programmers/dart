@@ -1,0 +1,37 @@
+def star(arr, idx):
+    arr[idx-1] = 2*arr[idx-1]
+    if len(arr) > (idx + 2):
+        arr[idx+1] = 2*arr[idx+1]
+    return arr
+
+def consolation(arr, idx):
+    arr[idx-1] *= -1
+    return arr
+
+def solution(dartResult):
+    score_dict = {'S' : 1, 'D' : 2, 'T' : 3}
+    score_awards = []
+    score = []
+    list_DR = list(dartResult)
+    
+    for i in range(len(list_DR)):
+        if list_DR[i].isalpha():
+            score_awards.append(int(list_DR[i-1])**score_dict[list_DR[i]])
+            
+        elif list_DR[i].isdigit(): pass
+        
+        else:
+            score_awards.append(list_DR[i])
+            
+    for i in range(len(score_awards)):
+        if score_awards[i] == '*':
+            score = star(score_awards, i)
+            score.remove('*')
+            
+        elif score_awards[i] == '#':
+            score = consolation(score_awards, i)
+            score.remove('#')
+                        
+
+    print(score)
+    return 0
