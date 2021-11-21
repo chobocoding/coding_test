@@ -1,37 +1,54 @@
+# https://programmers.co.kr/learn/courses/30/lessons/17682
+
 def star(arr, idx):
     arr[idx-1] = 2*arr[idx-1]
-    if len(arr) > (idx + 2):
-        arr[idx+1] = 2*arr[idx+1]
+    if idx-2 >= 0:
+        if str(arr[idx-2]).isdigit():
+            arr[idx-2] = 2*arr[idx-2]
+            return arr
+    if idx-3 >= 0:
+        arr[idx-3] = 2*arr[idx-3]
+        return arr
+    
     return arr
 
 def consolation(arr, idx):
-    arr[idx-1] *= -1
+    arr[idx-1] = arr[idx-1] * -1
     return arr
 
 def solution(dartResult):
     score_dict = {'S' : 1, 'D' : 2, 'T' : 3}
     score_awards = []
-    score = []
+    num_index = []
     list_DR = list(dartResult)
-    
+    print(list_DR)
     for i in range(len(list_DR)):
+
         if list_DR[i].isalpha():
-            score_awards.append(int(list_DR[i-1])**score_dict[list_DR[i]])
+            if list_DR[i-2:i] == ['1', '0']:
+                score_awards.append(int(''.join(list_DR[i-2:i]))**score_dict[list_DR[i]])
+            else:
+                score_awards.append(int(list_DR[i-1])**score_dict[list_DR[i]])
             
         elif list_DR[i].isdigit(): pass
         
         else:
-            score_awards.append(list_DR[i])
-            
+            score_awards.append(list_DR[i])          
+    print(score_awards)
     for i in range(len(score_awards)):
+        
         if score_awards[i] == '*':
-            score = star(score_awards, i)
-            score.remove('*')
+            score_awards = star(score_awards, i)
             
         elif score_awards[i] == '#':
-            score = consolation(score_awards, i)
-            score.remove('#')
-                        
-
-    print(score)
-    return 0
+            score_awards = consolation(score_awards, i)
+        
+        else:
+            num_index.append(i)
+    print(score_awards)       
+    answer = 0
+    
+    for i in num_index:
+        answer += score_awards[i]
+        
+    return answer
