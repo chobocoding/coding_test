@@ -3,4 +3,10 @@
 
 1. Greedy & Implementation  - Fin
 2. DFS & BFS - ing
-
+3. Sort Algorithm
+4. Binary Search
+5. Dynamic Programming
+6. 최단 경로 알고리즘
+7. Graph Theory
+8. 자주 출제되는 유형
+9. 개발형 코딩 테스트
