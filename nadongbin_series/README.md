@@ -2,7 +2,7 @@
 # https://www.youtube.com/watch?v=2zjoKjt97vQ&list=PLRx0vPvlEmdAghTr5mXQxGpHjWqSz0dgC&index=2
 
 1. Greedy & Implementation  - Fin
-2. DFS & BFS - ing
+2. DFS & BFS - Fin 
 3. Sort Algorithm
 4. Binary Search
 5. Dynamic Programming
