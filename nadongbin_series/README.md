@@ -3,8 +3,8 @@
 
 1. Greedy & Implementation  - Fin
 2. DFS & BFS - Fin 
-3. Sort Algorithm
-4. Binary Search
+3. Sort Algorithm - Fin
+4. Binary Search - Fin
 5. Dynamic Programming
 6. 최단 경로 알고리즘
 7. Graph Theory
