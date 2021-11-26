@@ -1,0 +1,43 @@
+# https://programmers.co.kr/learn/courses/30/lessons/67256
+
+def distance(list1, list2):
+    return abs(list1[0]-list2[0]) + abs(list1[1]-list2[1])
+def solution(numbers, hand):
+    coor = {'1' : [0, 0],
+                 '2' : [0, 1],
+                 '3' : [0, 2],
+                 '4' : [1, 0],
+                 '5' : [1, 1],
+                 '6' : [1, 2],
+                 '7' : [2, 0],
+                 '8' : [2, 1],
+                 '9' : [2, 2],
+                 '*' : [3, 0],
+                 '0' : [3, 1],
+                 '#' : [3, 2]}
+    left_pos = '*'
+    right_pos = '#'
+    answer = ''
+    for i in numbers:
+        if i in [1, 4, 7]:
+            answer += 'L'
+            left_pos = str(i)
+        elif i in [3, 6, 9]:
+            answer += 'R'
+            right_pos = str(i)
+        else:
+            if distance(coor[str(i)], coor[left_pos]) == distance(coor[str(i)], coor[right_pos]):
+                if hand == 'left':
+                    answer += 'L'
+                    left_pos = str(i)
+                else:
+                    answer += 'R'
+                    right_pos = str(i)
+            elif distance(coor[str(i)], coor[left_pos]) > distance(coor[str(i)], coor[right_pos]):
+                answer += 'R'
+                right_pos = str(i)
+            else:
+                answer += 'L'
+                left_pos = str(i)
+                
+    return answer
