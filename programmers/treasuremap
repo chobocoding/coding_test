@@ -1,0 +1,34 @@
+# https://programmers.co.kr/learn/courses/30/lessons/17681
+
+def solution(n, arr1, arr2):
+    array1 = []
+    array2 = []
+    result_array = []
+    
+    for i in range(n):
+        array1.append(format(arr1[i], 'b').zfill(n))
+        array2.append(format(arr2[i], 'b').zfill(n))
+        
+    for i in range(n):
+        string = ''
+        for j in range(n):
+            if array1[i][j] == '1' or array2[i][j] == '1':
+                string += '#'
+            else:
+                string += ' '
+        result_array.append(string)        
+    
+    return result_array
+    
+    '''
+    비트 연산자
+def solution(n, arr1, arr2):
+    answer = []
+    for i,j in zip(arr1,arr2):
+        a12 = str(bin(i|j)[2:])
+        a12=a12.rjust(n,'0')
+        a12=a12.replace('1','#')
+        a12=a12.replace('0',' ')
+        answer.append(a12)
+    return answer
+    '''
