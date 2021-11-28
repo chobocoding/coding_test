@@ -1,0 +1,35 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42860
+
+def goback(array, pos):
+    left_A = 0
+    right_A = 0
+    for i in array[:pos:-1]:
+        if i == 0:
+            right_A += 1
+        else: break
+    for i in array[pos+1:]:
+        if i == 0:
+            left_A += 1
+        else: break
+    
+    go = len(array) - 1 - right_A
+    back = len(array) - left_A + pos - 1
+    if go > back:
+        return back
+    else: return go
+    
+        
+def solution(name):
+    alpha_move = []
+    pos_move = []
+    moves = []
+    for i in [ord(x) for x in name]:
+        alpha_move.append(min(abs(i-ord('Z'))+1, i-ord('A')))
+    
+    for i in alpha_move:
+        if i == 0: pos_move.append(i)
+        else: pos_move.append(1)
+    
+    for i in pos_move:
+        moves.append(goback(pos_move, i))
+    return min(moves) + sum(alpha_move)
