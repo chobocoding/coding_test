@@ -1,0 +1,24 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42586
+
+from collections import deque
+def solution(progresses, speeds):
+    queue = deque()
+    for i in progresses:
+        queue.append(i)
+    days = 0
+    release = 1
+    answer = []
+    temp = 0
+    for i in range(len(speeds)):
+        while (queue[i] + speeds[i]*days) < 100:
+            days += 1
+        if temp == days:
+            release += 1
+        else:
+            answer.append(release)
+            release = 1
+        temp = days
+        
+    answer.append(release)
+    del answer[0]
+    return answer
