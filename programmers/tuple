@@ -1,0 +1,23 @@
+# https://programmers.co.kr/learn/courses/30/lessons/64065
+
+
+def solution(s):
+    s = s.replace('{', '', 1)[:-1]
+    string = ''
+    num_list = []
+    result = []
+    for i in range(len(s)):
+        if s[i].isdigit() == True:
+            string += s[i]
+            if s[i+1] == ',':
+                string += ','
+        elif s[i] == '}':
+            num_list.append(string.split(','))
+            string = ''
+            
+    num_list.sort(key= lambda x: len(x))
+    for i in num_list:
+        for j in i:
+            if int(j) not in result:
+                result.append(int(j))
+    return result
