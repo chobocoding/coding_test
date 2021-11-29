@@ -1,0 +1,23 @@
+# https://programmers.co.kr/learn/courses/30/lessons/62048
+
+def gcd(a, b):
+    while b > 0:
+        a, b = b, a % b
+    return a
+
+def solution(w,h):
+    use = 0
+    c = gcd(w, h)
+    w, h = int(w/c), int(h/c)
+    
+    if w >= h:
+        gradient = w/h
+        ran = h
+    else: 
+        gradient = h/w
+        ran = w
+    
+    for i in range(ran):
+        use += int(gradient*i) * 2
+    useless = w*h - use
+    return w*h*c*c - useless*c
