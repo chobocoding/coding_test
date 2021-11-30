@@ -1,0 +1,25 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12899#
+
+def solution(n):
+    num_dict = {1 : '1', 2 : '2', 3: '4'}
+    trans = []
+    mul = -1
+    answer = ''
+    while True:
+        mul += 1
+        if n < 3**mul:
+            break
+        else:
+            n -= 3**mul
+            trans.append(1)
+            
+    for i in range(mul-1, -1, -1):
+        while True:
+            if n >= 3**i:
+                n = n - 3**i
+                trans[i] += 1
+            else:
+                break
+    for i in trans[::-1]:
+        answer += num_dict[i]
+    return answer
