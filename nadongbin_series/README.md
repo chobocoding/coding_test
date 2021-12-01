@@ -5,7 +5,7 @@
 2. DFS & BFS - Fin 
 3. Sort Algorithm - Fin
 4. Binary Search - Fin
-5. Dynamic Programming
+5. Dynamic Programming -Fin
 6. 최단 경로 알고리즘
 7. Graph Theory
 8. 자주 출제되는 유형
