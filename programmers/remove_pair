@@ -9,3 +9,4 @@ def solution(s):
     if len(list_s) == 0:
         return 1
     else: return 0
+ 
