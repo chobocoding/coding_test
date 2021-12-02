@@ -1,0 +1,28 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42747#
+
+def solution(citations):
+    answer = 0
+    temp = [0] * (max(citations) + 1)
+    count_citation = [len(citations)] * (max(citations) + 1)
+    
+    for i in citations:
+        temp[i] += 1
+
+    for i in range(0, len(temp) - 1):
+        temp[i + 1] = temp[i] + temp[i + 1]
+        
+    for i in range(len(count_citation) - 1):
+        count_citation[i + 1] -= temp[i]
+    
+    for idx, times in enumerate(count_citation):
+        if times >= idx:
+            answer = idx
+        else:
+            return answer
+    return answer
+    
+    # 다른 사람 풀이 중 신기한거..
+    def solution(citations):
+    citations.sort(reverse=True)
+    answer = max(map(min, enumerate(citations, start=1)))
+    return answer
