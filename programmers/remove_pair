@@ -1,0 +1,11 @@
+# https://programmers.co.kr/learn/courses/30/lessons/12973
+
+def solution(s):
+    list_s = []
+    for i in s:
+        list_s.append(i)
+        if len(list_s) >= 2:
+            if list_s[-2] == list_s[-1]: del list_s[-2:]
+    if len(list_s) == 0:
+        return 1
+    else: return 0
