@@ -1,0 +1,18 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42587
+
+def solution(priorities, location):
+    cnt = 0
+    
+    priorities[location] = str(priorities[location])
+    temp = list(map(int, priorities))
+    while priorities:
+        if int(priorities[0]) >= max(temp):
+            goal = priorities.pop(0)
+            
+            cnt += 1
+            if goal != temp.pop(0): return cnt
+        else:
+            priorities.append(priorities.pop(0))
+            temp.append(temp.pop(0))
+    
+    return cnt
