@@ -15,4 +15,17 @@ def solution(scoville, k):
     return mix_cnt
         
         
-# heapq에 대해 공부해서 정리하자..
+# heapq에 대해 공부해서 정리하자.. 
+# https://github.com/chobocoding/python/blob/main/heapq.ipynb
+import heapq
+def solution(scoville, K):
+    heapq.heapify(scoville)
+    cnt = 0
+    while scoville[0] < K:
+        try:
+            heapq.heappush(scoville, heapq.heappop(scoville) + (2 * heapq.heappop(scoville)))
+              
+        except:
+            return - 1      
+        cnt += 1  
+    return cnt
