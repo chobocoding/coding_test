@@ -1,0 +1,48 @@
+# https://programmers.co.kr/learn/courses/30/lessons/42578
+
+# 내가 푼 풀이(시간 복잡도가 O(n^3) 정도라 시간 초과)
+from itertools import combinations
+from functools import reduce
+
+def solution(clothes):
+    total = 0
+    clothes_dict = {}
+    combs = []
+    
+    for i in clothes:
+        if i[1] not in clothes_dict.keys():
+            clothes_dict[i[1]] = 1
+        else:
+            clothes_dict[i[1]] += 1
+        
+    total = sum(list(clothes_dict.values()))
+    kinds = len(clothes_dict.keys())
+    nums = list(clothes_dict.values())
+
+    for n in range(2, kinds + 1):
+        combs.append(list(combinations(nums, n)))
+        
+    for i in combs:
+        for j in i:
+            total += reduce(lambda x, y : x * y, j)
+    
+        
+    return total
+    
+    # 경우의 수....(경우의 수를 활용하여 풀이)
+    
+    def solution(clothes):
+    clothes_dict = {}
+    total = 1
+    for i in clothes:
+        if i[1] not in clothes_dict.keys():
+            clothes_dict[i[1]] = 1
+        else:
+            clothes_dict[i[1]] += 1
+        
+    nums = list(clothes_dict.values())
+
+    for i in nums:
+        total *= (i + 1)
+
+    return total - 1
