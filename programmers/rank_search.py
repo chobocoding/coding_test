@@ -56,8 +56,8 @@ def solution(info, query):
         result.append(answer)
     return result
   
-  
-  # 
+
+# 풀이
 from itertools import combinations
 from bisect import bisect_left
 
