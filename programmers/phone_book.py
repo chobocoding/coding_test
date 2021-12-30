@@ -56,3 +56,12 @@ def solution(phone_book):
         if i in phone_dict[len(i)]: return False
     
     return True
+
+# startswith함수로 간단하게 해결
+def solution(phoneBook):
+    phoneBook = sorted(phoneBook)
+
+    for p1, p2 in zip(phoneBook, phoneBook[1:]):
+        if p2.startswith(p1):
+            return False
+    return True
