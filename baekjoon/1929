@@ -1,0 +1,11 @@
+# https://www.acmicpc.net/problem/1929
+
+n, m = map(int, input().split())
+sieve = [False, False] + [True] * (m - 1)
+
+for i in range(m):
+    if sieve[i]:
+        for j in range(2*i, m+1, i):
+            sieve[j] = False
+for i in range(n, m+1):
+    if sieve[i]: print(i)
