@@ -1,0 +1,17 @@
+# https://www.acmicpc.net/problem/7568
+
+N = int(input())
+frame = []
+rank = []
+for i in range(N):
+    frame.append(list(map(int, input().split())))
+
+for i in range(len(frame)):
+    count = 1
+    for w, h in frame:
+        temp_w, temp_h = frame[i]
+
+        if (temp_w < w) & (temp_h < h):
+            count += 1
+    rank.append(count)
+print(*rank)
