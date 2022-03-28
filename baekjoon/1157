@@ -1,0 +1,13 @@
+# https://www.acmicpc.net/problem/1157 
+
+strings = list(input().upper())
+set_strings = list(set(strings))
+repeat_num = {}
+
+for i in range(len(set_strings)):
+    repeat_num[set_strings[i]] = strings.count(set_strings[i])
+dict_values = list(repeat_num.values())
+if dict_values.count(max(dict_values)) >= 2:
+    print('?')
+else: 
+    print(max(repeat_num, key=lambda x : repeat_num[x]))
