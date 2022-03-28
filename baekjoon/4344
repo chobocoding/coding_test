@@ -1,5 +1,3 @@
-# https://www.acmicpc.net/problem/4344
-
 iter = int(input())
 
 for i in range(iter):
@@ -11,4 +9,4 @@ for i in range(iter):
     for j in range(1, len(num_list)):
         if num_list[j] > tmp_mean:
             cnt += 1
-    print(round(cnt/num_list[0] * 100, 3), '%', sep='')
+    print(f'{cnt/num_list[0] * 100:.3f}%')
