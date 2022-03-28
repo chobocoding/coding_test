@@ -7,4 +7,6 @@ def hanoi(n, start, temp, to):
         hanoi(n-1, start, to, temp)
         print(start, to)
         hanoi(n-1, temp, start, to)
-hanoi(int(input()), 1, 2, 3)
+n = int(input())
+print(2**n - 1)        
+hanoi(n, 1, 2, 3)
