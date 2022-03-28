@@ -1,0 +1,10 @@
+# https://www.acmicpc.net/problem/11729
+
+def hanoi(n, start, temp, to):
+    if n == 1:
+        print(start, to)
+    else:
+        hanoi(n-1, start, to, temp)
+        print(start, to)
+        hanoi(n-1, temp, start, to)
+hanoi(int(input()), 1, 2, 3)
