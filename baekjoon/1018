@@ -1,0 +1,30 @@
+# https://www.acmicpc.net/problem/1018
+
+b_answer = [['B','W'] *4, ['W', 'B']*4] * 4
+w_answer = [['W', 'B']*4, ['B','W']*4] * 4
+
+board = []
+board_list = []
+painting_list = []
+N, M = map(int, input().split(' '))
+
+for i in range(N):
+    board.append(list(input()))
+
+for i in range(M-7):
+    for j in range(N-7):
+        temp_list = []
+        for k in range(8):
+            temp_list.append(board[j+k][i:i+8])    
+        board_list.append(temp_list)
+
+for i in range(len(board_list)):
+    w_painting_count = 0
+    b_painting_count = 0
+    for j in range(8):
+        for k in range(8):
+            if board_list[i][j][k] != b_answer[j][k]: b_painting_count+=1
+            if board_list[i][j][k] != w_answer[j][k]: w_painting_count+=1
+    painting_list.append(b_painting_count)
+    painting_list.append(w_painting_count)
+print(min(painting_list))
