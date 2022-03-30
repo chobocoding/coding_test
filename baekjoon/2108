@@ -1,0 +1,36 @@
+# https://www.acmicpc.net/problem/2108
+
+import sys
+import math
+
+def round_(x):
+    if (float(x) % 1) >= 0.5:
+        return int(math.ceil(x))
+    else:
+        return int(round(x))
+    
+N = int(sys.stdin.readline().rstrip())
+num_dict = {}
+num_list = []
+
+for i in range(N):
+    temp = int(sys.stdin.readline().rstrip())
+    num_list.append(temp)
+    if temp not in num_dict.keys():
+        num_dict[temp] = 1
+    else:
+        num_dict[temp] += 1
+num_list.sort()
+ranking = sorted(num_dict, key=lambda x : (-num_dict[x], x))
+
+print(round_(sum(num_list)/N))
+print(num_list[N//2])
+
+if len(num_dict.keys()) == 1:
+    print(ranking[0])
+elif num_dict[ranking[0]] == num_dict[ranking[1]]:
+    print(ranking[1])
+else:
+    print(ranking[0])
+
+print(num_list[-1] - num_list[0])
