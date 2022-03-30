@@ -1,0 +1,13 @@
+# https://www.acmicpc.net/problem/2751
+
+import sys
+import heapq
+
+heap = []
+N = int(sys.stdin.readline().rstrip())
+
+for i in range(N):
+    heapq.heappush(heap, int(sys.stdin.readline().rstrip()))
+    
+for i in range(N):
+    print(heapq.heappop(heap))
