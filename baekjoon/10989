@@ -1,0 +1,13 @@
+# https://www.acmicpc.net/problem/10989
+
+
+import sys
+counting_numbers = [0] * 10001
+
+N = int(sys.stdin.readline().rstrip())
+for i in range(N):
+    counting_numbers[int(sys.stdin.readline().rstrip())] += 1
+
+for i in range(10001):
+    for j in range(counting_numbers[i]):
+        print(i)
