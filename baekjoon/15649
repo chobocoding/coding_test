@@ -1,0 +1,8 @@
+# https://www.acmicpc.net/problem/15649
+
+from itertools import permutations
+import sys
+
+M, N = map(int, sys.stdin.readline().rstrip().split(' '))
+for i in permutations(range(1, M+1), N):
+    print(*i)
