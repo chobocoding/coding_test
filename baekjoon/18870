@@ -1,0 +1,15 @@
+# https://www.acmicpc.net/problem/18870
+
+import sys
+N = int(sys.stdin.readline().rstrip())
+num_list = list(map(int, sys.stdin.readline().rstrip().split(' ')))
+sort_num_set = sorted(set(num_list))
+num_dict = {}
+
+count = 0
+for i in sort_num_set:
+    num_dict[i] = count
+    count += 1
+
+for i in num_list:
+    print(num_dict[i], end=' ')
