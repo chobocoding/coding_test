@@ -1,0 +1,27 @@
+# https://www.acmicpc.net/problem/9012
+import sys
+N = int(sys.stdin.readline().rstrip())
+
+for i in range(N):
+    VPS = list(sys.stdin.readline().rstrip())
+    idx = 0
+    while VPS:
+        if len(set(VPS)) == 1:
+            print('NO')
+            break
+    
+        if VPS[idx] == ')':
+            if idx == 0:
+                print('NO')
+                break
+            if VPS[idx-1] == '(':
+                VPS.pop(idx)
+                VPS.pop(idx-1)
+                idx = 0
+            else:
+                print('NO')
+                break
+        else:
+            idx += 1
+
+    if len(VPS) == 0: print('YES')
