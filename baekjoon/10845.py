@@ -1,4 +1,7 @@
 # https://www.acmicpc.net/problem/10845
+# 시간 제한 0.5초 입력 최대 10000 -> O(n^2)미만으로 해결해야 함
+# FIFO를 구현 해야 함
+# deque를 활용하여 위의 문제를 구현하면 해결 가능
 
 from collections import deque
 import sys
